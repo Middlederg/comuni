@@ -1,4 +1,4 @@
-﻿using Comuni.Forms.Views;
+﻿using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,18 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Comuni.Forms
+namespace Comuni.Forms.CustomControls
 {
-    public partial class FrmPrincipal : FrmBase
+    public partial class CustomIconButton : IconButton
     {
-        public FrmPrincipal()
+        public CustomIconButton()
         {
             InitializeComponent();
         }
 
-        private void customIconButton1_Click(object sender, EventArgs e)
+        protected override void OnPaint(PaintEventArgs pe)
         {
-            new FrmBaseDialog().Show();
+            base.OnPaint(pe);
         }
     }
 }

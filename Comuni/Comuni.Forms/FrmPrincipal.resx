@@ -117,38 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bologna" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bologna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bolognaIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bolognaIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="firenze" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\firenze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="firenzeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\firenzeIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="luca" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\luca.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lucaIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lucaIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="milan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\milan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="milanIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\milanIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="multicolor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\multicolor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="siena" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\siena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sienaIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sienaIcon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
