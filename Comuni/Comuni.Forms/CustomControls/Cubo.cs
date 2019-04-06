@@ -38,5 +38,10 @@ namespace Comuni.Forms.CustomControls
 
             BackgroundImage = (recurso == null || recurso.IsAny) ? Properties.Resources.multicolor : null;
         }
+
+        public void SetToolTip(string texto)
+        {
+            ToolTipAyuda.SetToolTip(this, texto);
+        }
     }
 }

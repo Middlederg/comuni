@@ -1,6 +1,6 @@
 ﻿namespace Comuni.Forms.CustomControls
 {
-    partial class Cubo
+    partial class BorderedLabel
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.ToolTipAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // Cubo
+            // BorderedLabel
             // 
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AllowDrop = true;
+            this.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BackColor = System.Drawing.Color.White;
+            this.Font = new System.Drawing.Font("Rubik", 12F);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Size = new System.Drawing.Size(30, 30);
+            this.Size = new System.Drawing.Size(22, 26);
+            this.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolTip ToolTipAyuda;
     }
 }

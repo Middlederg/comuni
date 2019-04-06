@@ -20,7 +20,7 @@ namespace Comuni.Forms.Views
             set
             {
                 BtnCancelar.Visible = value;
-                if (value) TlpBotones.ColumnStyles[2].Width = 30;
+                if (value) TlpBotones.ColumnStyles[2].Width = 130;
                 else TlpBotones.ColumnStyles[2].Width = 0;
             }
         }

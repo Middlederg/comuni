@@ -1,13 +1,13 @@
-﻿namespace Comuni.Forms.CustomControls
+﻿namespace Comuni.Forms.UserControls
 {
-    partial class Cubo
+    partial class UcBase
     {
-        /// <summary>
+        /// <summary> 
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Limpiar los recursos que se estén usando.
         /// </summary>
         /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
@@ -22,7 +22,7 @@
 
         #region Código generado por el Diseñador de componentes
 
-        /// <summary>
+        /// <summary> 
         /// Método necesario para admitir el Diseñador. No se puede modificar
         /// el contenido de este método con el editor de código.
         /// </summary>
@@ -32,18 +32,20 @@
             this.ToolTipAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // Cubo
+            // UcBase
             // 
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Font = new System.Drawing.Font("Rubik", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Size = new System.Drawing.Size(30, 30);
+            this.Name = "UcBase";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolTip ToolTipAyuda;
+        protected System.Windows.Forms.ToolTip ToolTipAyuda;
     }
 }

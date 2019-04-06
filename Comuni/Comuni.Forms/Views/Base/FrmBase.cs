@@ -13,6 +13,16 @@ namespace Comuni.Forms.Views
 {
     public partial class FrmBase : Form
     {
+        public string Titulo
+        {
+            get => LblTitulo.Text;
+            set
+            {
+                LblTitulo.Text = value;
+                Text = value;
+            }
+        }
+
         public IconChar WindowIcon
         {
             get { return PbxIcon.IconChar; }
@@ -23,7 +33,7 @@ namespace Comuni.Forms.Views
             }
         }
 
-        public bool Mimizable
+        public bool Minimizable
         {
             get { return BtnMin.Visible; }
             set
@@ -59,7 +69,6 @@ namespace Comuni.Forms.Views
         }
         private void MakeVisible(int columna) => TlpPrincipal.ColumnStyles[columna].Width = 30;
         private void MakeInvisible(int columna) => TlpPrincipal.ColumnStyles[columna].Width = 0;
-        
 
         public FrmBase()
         {

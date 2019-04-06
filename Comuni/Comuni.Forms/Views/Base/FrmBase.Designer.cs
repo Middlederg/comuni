@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TlpPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.BtnMax = new Comuni.Forms.CustomControls.CustomIconButton();
             this.BtnClose = new Comuni.Forms.CustomControls.CustomIconButton();
             this.PbxIcon = new FontAwesome.Sharp.IconPictureBox();
             this.BtnMin = new Comuni.Forms.CustomControls.CustomIconButton();
             this.LblTitulo = new System.Windows.Forms.Label();
+            this.ToolTipAyuda = new System.Windows.Forms.ToolTip(this.components);
             this.TlpPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbxIcon)).BeginInit();
             this.SuspendLayout();
@@ -187,5 +189,6 @@
         private CustomControls.CustomIconButton BtnClose;
         private CustomControls.CustomIconButton BtnMin;
         private System.Windows.Forms.Label LblTitulo;
+        protected System.Windows.Forms.ToolTip ToolTipAyuda;
     }
 }

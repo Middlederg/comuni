@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Constantes.cs" />
     <Compile Include="Model\Ciudad.cs" />
+    <Compile Include="Model\Construccion.cs" />
     <Compile Include="Model\Edificio.cs" />
     <Compile Include="ModelFactories\EdificioBuilder.cs" />
     <Compile Include="ModelFactories\EdificiosCulturalesFactory.cs" />

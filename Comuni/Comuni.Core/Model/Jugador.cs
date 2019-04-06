@@ -9,7 +9,7 @@ namespace Comuni.Core.Model
         public int Index => Ciudad.Numero;
         public override string ToString() => Ciudad.Nombre;
         public IEnumerable<Recurso> Recursos { get; private set; }
-        public IEnumerable<Recurso> Edificios { get; private set; }
+        public IEnumerable<Construccion> Construcciones { get; private set; }
         public int Emisarios { get; set; }
 
         public int Gold => Recursos.Count(x => x.IsGold);

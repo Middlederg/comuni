@@ -109,7 +109,6 @@
             this.Controls.Add(this.TlpBotones);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Maximizable = true;
-            this.Mimizable = true;
             this.Name = "FrmBaseDialog";
             this.Text = "FrmBaseDialog";
             this.Controls.SetChildIndex(this.TlpBotones, 0);
