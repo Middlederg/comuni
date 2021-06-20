@@ -1,0 +1,23 @@
+<Project>
+
+  <ItemGroup Label="Blazor">
+    <PackageReference Update="Blazored.LocalStorage" Version="3.0.0" />
+    <PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="$(NetPackageVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="$(NetPackageVersion)" />
+    <PackageReference Update="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup> 
+  
+  <ItemGroup Label="ThirdParty">
+    <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup Label="Testing">
+    <PackageReference Update="FluentAssertions" Version="5.10.3" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.10.0" />
+    <PackageReference Update="xunit" Version="2.4.1" />
+    <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
+    <PackageReference Update="coverlet.collector" Version="3.0.3" />
+    <PackageReference Update="NSubstitute" Version="4.2.2" />
+    <PackageReference Update="FontAwesome.Sharp" Version="5.15.3" />
+  </ItemGroup>
+</Project>

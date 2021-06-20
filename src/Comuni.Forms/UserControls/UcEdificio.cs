@@ -14,8 +14,8 @@ namespace Comuni.Forms.UserControls
     {
         public bool Arrastrable { get; set; }
 
-        private Edificio edificio;
-        public Edificio Edificio
+        private BuildingCard edificio;
+        public BuildingCard Edificio
         {
             get => edificio;
             set
@@ -37,10 +37,10 @@ namespace Comuni.Forms.UserControls
             }
             else
             {
-                LblNumero.Text = edificio.Nivel.ToString();
+                LblNumero.Text = edificio.Level.ToString();
                 Pbx.IconChar = edificio.GetIconChar;
-                LblNombre.Text = edificio.Nombre;
-                ToolTipAyuda.SetToolTip(Pbx, string.Join("\n", edificio.Tipos.Select(x => x.ToString())));
+                LblNombre.Text = edificio.name;
+                ToolTipAyuda.SetToolTip(Pbx, string.Join("\n", edificio.TypesAllowed.Select(x => x.ToString())));
                 BackColor = edificio.GetBackColor;
             }
         }
@@ -58,7 +58,7 @@ namespace Comuni.Forms.UserControls
 
         private void OnPaint(object sender, PaintEventArgs e)
         {
-            var color = edificio?.GetColorBorde ?? Color.Black;
+            var color = edificio?.GetBorderColor ?? Color.Black;
             ControlPaint.DrawBorder(e.Graphics, e.ClipRectangle,
                       color, 1, ButtonBorderStyle.Solid,
                       color, 1, ButtonBorderStyle.Solid,

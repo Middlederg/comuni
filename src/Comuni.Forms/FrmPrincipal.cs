@@ -17,23 +17,23 @@ namespace Comuni.Forms
         {
             InitializeComponent();
 
-            ucEdificio1.Edificio = EdificiosEconomicosFactory.Granja.Edificio;
-            ucEdificio2.Edificio = EdificiosEconomicosFactory.Mercado.Edificio;
+            ucEdificio1.Edificio = EconomicBuildingFactory.Farm.Building;
+            ucEdificio2.Edificio = EconomicBuildingFactory.Market.Building;
             //ucEdificio2.Edificio = EdificiosCulturalesFactory.Universidad.Edificio;
-            ucEdificio3.Edificio = EdificiosMilitaresFactory.Fortaleza.Edificio;
-            ucEdificio4.Edificio = EdificiosReligiososFactory.Iglesia.Edificio;
+            ucEdificio3.Edificio = MilitaryBuildingFactory.Fortress.Building;
+            ucEdificio4.Edificio = ReligousBuildingFactory.Church.Building;
 
             //ucEdificio1.Edificio = new EdificioBuilder(4, "Palacio").SetLetraD().SetEconomico().SetCultural().SetNumeroMaximo3().Edificio;
             //ucEdificio2.Edificio = new EdificioBuilder(4, "Templo de la orden").SetLetraD().SetMilitar().SetReligioso().SetNumeroMaximo3().Edificio;
             //ucEdificio3.Edificio = new EdificioBuilder(4, "Seminario").SetLetraD().SetReligioso().SetCultural().SetNumeroMaximo5().Edificio;
             //ucEdificio4.Edificio = new EdificioBuilder(4, "Ciudadela").SetLetraD().SetEconomico().SetMilitar().SetNumeroMaximo5().Edificio;
 
-            ucFilaConstruccion2.Tipo = TipoPoder.Economico;
-            ucFilaConstruccion2.Inicializar(Construcciones(), new List<Recurso>() { Recurso.Oro, Recurso.Oro, Recurso.Ejercito});
-            ucFilaConstruccion1.Tipo = TipoPoder.Militar;
-            ucFilaConstruccion3.Tipo = TipoPoder.Cultural;
-            ucFilaConstruccion4.Tipo = TipoPoder.Religioso;
-            ucFilaConstruccion5.Tipo = TipoPoder.Murallas;
+            ucFilaConstruccion2.Tipo = BuildingType.Economic;
+            ucFilaConstruccion2.Inicializar(Construcciones(), new List<Resource>() { Resource.Oro, Resource.Oro, Resource.Army});
+            ucFilaConstruccion1.Tipo = BuildingType.Military;
+            ucFilaConstruccion3.Tipo = BuildingType.Cultural;
+            ucFilaConstruccion4.Tipo = BuildingType.Religious;
+            ucFilaConstruccion5.Tipo = BuildingType.Walls;
         }
 
         private void customIconButton1_Click(object sender, EventArgs e)
@@ -41,18 +41,18 @@ namespace Comuni.Forms
             new FrmBaseDialog().Show();
         }
 
-        private IEnumerable<Construccion> Construcciones()
+        private IEnumerable<Construction> Construcciones()
         {
-            yield return new Construccion(EdificiosEconomicosFactory.Granja.Edificio, TipoPoder.Economico, 0);
-            yield return new Construccion(EdificiosEconomicosFactory.Mercado.Edificio, TipoPoder.Economico, 1);
-            yield return new Construccion(EdificiosEconomicosFactory.Molino.Edificio, TipoPoder.Economico, 1);
-            yield return new Construccion(EdificiosEconomicosFactory.CentroUrbano.Edificio, TipoPoder.Economico, 2);
-            yield return new Construccion(EdificiosEconomicosFactory.Molino.Edificio, TipoPoder.Economico, 2);
-            yield return new Construccion(EdificiosEconomicosFactory.CentroUrbano.Edificio, TipoPoder.Economico, 2);
-            yield return new Construccion(EdificiosEconomicosFactory.Molino.Edificio, TipoPoder.Economico, 3);
-            yield return new Construccion(EdificiosEconomicosFactory.CentroUrbano.Edificio, TipoPoder.Economico, 3);
-            yield return new Construccion(EdificiosEconomicosFactory.Molino.Edificio, TipoPoder.Economico, 3);
-            yield return new Construccion(EdificiosEconomicosFactory.CentroUrbano.Edificio, TipoPoder.Economico, 3);
+            yield return new Construccion(EconomicBuildingFactory.Farm.Building, BuildingType.Economic, 0);
+            yield return new Construccion(EconomicBuildingFactory.Market.Building, BuildingType.Economic, 1);
+            yield return new Construccion(EconomicBuildingFactory.Mill.Building, BuildingType.Economic, 1);
+            yield return new Construccion(EconomicBuildingFactory.UrbanCentre.Building, BuildingType.Economic, 2);
+            yield return new Construccion(EconomicBuildingFactory.Mill.Building, BuildingType.Economic, 2);
+            yield return new Construccion(EconomicBuildingFactory.UrbanCentre.Building, BuildingType.Economic, 2);
+            yield return new Construccion(EconomicBuildingFactory.Mill.Building, BuildingType.Economic, 3);
+            yield return new Construccion(EconomicBuildingFactory.UrbanCentre.Building, BuildingType.Economic, 3);
+            yield return new Construccion(EconomicBuildingFactory.Mill.Building, BuildingType.Economic, 3);
+            yield return new Construccion(EconomicBuildingFactory.UrbanCentre.Building, BuildingType.Economic, 3);
         }
 
         private void customIconButton1_Click_1(object sender, EventArgs e)

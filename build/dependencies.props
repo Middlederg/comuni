@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup Label="Default project values">
+    <NetVersion>net5.0</NetVersion>
+    <NetStandardVersion>netstandard2.0</NetStandardVersion>
+    <LangVersion>9.0</LangVersion>
+    <NetPackageVersion>5.0.4</NetPackageVersion>
+  </PropertyGroup>
+</Project>

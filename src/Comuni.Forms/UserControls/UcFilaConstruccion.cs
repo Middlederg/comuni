@@ -19,7 +19,7 @@ namespace Comuni.Forms.UserControls
             set => HuecosConstruccion.Active = value;
         }
 
-        public TipoPoder Tipo
+        public BuildingType Tipo
         {
             get => HuecosConstruccion.Tipo;
             set
@@ -27,13 +27,13 @@ namespace Comuni.Forms.UserControls
                 if (value != null)
                 {
                     HuecosConstruccion.Tipo = value;
-                    LblTitulo.Text = value.Nombre;
+                    LblTitulo.Text = value.Name;
                     TlpGeneral.BackColor = value.Color;
-                    Btn.Visible = !value.EsMuralla;
+                    Btn.Visible = !value.IsWall;
 
-                    if (!value.EsMuralla)
+                    if (!value.IsWall)
                     {
-                        CantidadRecursos.Tipo = value.Recurso.GetTipoRecurso;
+                        CantidadRecursos.Tipo = value.Resource.GetResourceType;
                         Btn.IconChar = value.Icon;
                         Btn.BackColor = value.Color;
                     }
@@ -46,10 +46,10 @@ namespace Comuni.Forms.UserControls
             InitializeComponent();
         }
 
-        public void Inicializar(IEnumerable<Construccion> construcciones, IEnumerable<Recurso> recursos)
+        public void Inicializar(IEnumerable<Construction> construcciones, IEnumerable<Resource> recursos)
         {
             HuecosConstruccion.InicializarConstrucciones(construcciones);
-            CantidadRecursos.Cantidad = recursos.Count(x => x.Equals(Tipo.Recurso));
+            CantidadRecursos.Cantidad = recursos.Count(x => x.Equals(Tipo.Resource));
         }
     }
 }

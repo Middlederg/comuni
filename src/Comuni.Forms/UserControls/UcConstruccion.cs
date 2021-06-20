@@ -15,8 +15,8 @@ namespace Comuni.Forms.UserControls
     {
         public bool Active { get; set; }
 
-        private TipoPoder tipo;
-        public TipoPoder Tipo
+        private BuildingType tipo;
+        public BuildingType Tipo
         {
             get => tipo;
             set
@@ -34,21 +34,21 @@ namespace Comuni.Forms.UserControls
             }
         }
 
-        private List<Construccion> construcciones;
+        private List<Construction> construcciones;
         private IEnumerable<string> GetColumnaToolTip(int columna)
         {
             int i = 1;
-            foreach (var construccion in construcciones.Where(x => x.Columna == columna))
+            foreach (var construccion in construcciones.Where(x => x.Column == columna))
             {
-                yield return $"{i++}. {construccion.Edificio.Nombre}";
+                yield return $"{i++}. {construccion.BuildingCard.name}";
             }
         }
-        public void InicializarConstrucciones(IEnumerable<Construccion> construcciones)
+        public void InicializarConstrucciones(IEnumerable<Construction> construcciones)
         {
             this.construcciones = construcciones.ToList();
             for (int i = 0; i < 5; i++)
             {
-                int numero = construcciones.Count(x => x.Tipo.Equals(Tipo) && x.Columna == i);
+                int numero = construcciones.Count(x => x.Type.Equals(Tipo) && x.Column == i);
                 var lbl = TlpPrincipal.Controls[i] as BorderedLabel;
                 lbl.Text = numero.ToString();
                 ToolTipAyuda.SetToolTip(lbl, string.Join("\n", GetColumnaToolTip(lbl.Columna)));
@@ -58,13 +58,13 @@ namespace Comuni.Forms.UserControls
         public UcConstruccion()
         {
             InitializeComponent();
-            InicializarConstrucciones(new List<Construccion>());
+            InicializarConstrucciones(new List<Construction>());
         }
 
         private void OnDragEnter(object sender, DragEventArgs e)
         {
-            var edificio = e.Data.GetData(typeof(Edificio)) as Edificio;
-            if (Active && edificio.ContieneTipo(Tipo) && LowerThan4(sender))
+            var edificio = e.Data.GetData(typeof(BuildingCard)) as BuildingCard;
+            if (Active && edificio.IsFromType(Tipo) && LowerThan4(sender))
                 e.Effect = DragDropEffects.Move;
         }
 
@@ -75,9 +75,9 @@ namespace Comuni.Forms.UserControls
             {
                 var lbl = sender as BorderedLabel;
                 int nivel = GetNivel(lbl);
-                var edificio = e.Data.GetData(typeof(Edificio)) as Edificio;
+                var edificio = e.Data.GetData(typeof(BuildingCard)) as BuildingCard;
                 nivel++;
-                construcciones.Add(new Construccion(edificio, tipo, lbl.Columna));
+                construcciones.Add(new Construction(edificio, tipo, lbl.Columna));
                 ToolTipAyuda.SetToolTip(lbl, string.Join("\n", GetColumnaToolTip(lbl.Columna)));
                 lbl.Text = nivel.ToString();
             }

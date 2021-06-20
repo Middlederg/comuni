@@ -12,8 +12,8 @@ namespace Comuni.Forms.CustomControls
 {
     public partial class BorderedLabel : Label
     {
-        private TipoPoder tipo;
-        public TipoPoder Tipo
+        private BuildingType tipo;
+        public BuildingType Tipo
         {
             get => tipo;
             set
@@ -37,7 +37,7 @@ namespace Comuni.Forms.CustomControls
             base.OnPaint(pe);
             if (tipo != null)
             {
-                var color = Tipo.GetColorBorde;
+                var color = Tipo.GetBorder;
                 ControlPaint.DrawBorder(pe.Graphics, pe.ClipRectangle,
                             color, 1, ButtonBorderStyle.Solid,
                             color, 1, ButtonBorderStyle.Solid,
