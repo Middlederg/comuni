@@ -226,12 +226,6 @@
     <Folder Include="UserControls\Construccion\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Comuni.Core\Comuni.Core.csproj">
-      <Project>{BDF57077-1988-4614-94B5-1F8A23AFFECF}</Project>
-      <Name>Comuni.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\siena.png" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +257,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sienaIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Comuni.Core\Comuni.Core.csproj">
+      <Project>{bdf57077-1988-4614-94b5-1f8a23affecf}</Project>
+      <Name>Comuni.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
