@@ -2,8 +2,7 @@
 
 namespace Comuni.Core
 {
-
-    public class ProjectColumn :Identity<int>
+    public class ProjectColumn : Identity<int>
     {
         public override int Id { get; }
         public int TotalPlaces { get; }
@@ -11,7 +10,24 @@ namespace Comuni.Core
         public int TotalMaxPlayer { get; }
 
         public IEnumerable<BuildingCard> Buildings { get; private set; }
+
         public Bid Bid { get; private set; }
+        public Player PlaceBid(Player player, int gold)
+        {
+            Player oldPlayer = null;
+
+            if (!BidCanBePlaced(player, gold))
+            {
+                throw new DomainException("Bid can not be placed");
+            }
+            if (Bid != null)
+            {
+                oldPlayer = Bid.Player;
+            }
+            Bid = new Bid(player, gold);
+            player.Resources.Pay(ResourceFactory.Gold, gold);
+            return oldPlayer;
+        }
 
         internal ProjectColumn(int index, int totalPlaces, bool givesExtraResource, int totalMaxPlayer = 0)
         {
@@ -23,7 +39,7 @@ namespace Comuni.Core
             Buildings = new List<BuildingCard>();
         }
 
-        public bool PlayerCanPlaceBid(Player player, int gold)
+        public bool BidCanBePlaced(Player player, int gold)
         {
             if (player.Envoys <= 0)
             {

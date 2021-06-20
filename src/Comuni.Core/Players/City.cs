@@ -6,7 +6,6 @@ using System.Text;
 
 namespace Comuni.Core
 {
-
     public record City
     {
         private readonly string name;

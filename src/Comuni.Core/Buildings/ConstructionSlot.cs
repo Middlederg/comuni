@@ -3,22 +3,6 @@ using System.Linq;
 
 namespace Comuni.Core
 {
-    public class CardConstructer
-    {
-        private readonly Player player;
-
-        public bool CanBeBuild(ConstructionSlot slot, BuildingCard card, bool isFirstTurn)
-        {
-            int cost = isFirstTurn ? 0 : 1;
-
-            cost+= card.
-        }
-        public void Build(BuildingCard card)
-        {
-
-        }
-    }
-
     public class ConstructionSlot
     {
         public List<BuildingCard> Buildings { get; }
@@ -26,7 +10,18 @@ namespace Comuni.Core
         public bool IsWall => Type.IsWall;
 
         public int CurrentLevel => Buildings.Count;
-        public int CurrentPoints => Buildings.Select((x, index) => index + 1).Sum();
+        public bool IsFull => CurrentLevel == 4;
+        public int CurrentPoints
+        {
+            get
+            {
+                if (IsWall)
+                {
+                    return 0;
+                }
+                return Buildings.Select((x, index) => index + 1).Sum();
+            }
+        }
 
         public ConstructionSlot(BuildingType type)
         {
@@ -36,19 +31,24 @@ namespace Comuni.Core
 
         public bool CanBePlaced(BuildingCard card)
         {
-            return card.IsFromType(Type);
+            if (IsWall)
+            {
+                return !IsFull;
+            }
+            return card.IsFromType(Type) && !IsFull;
         }
 
-        public int Cost(BuildingCard card)
+        public int Cost(BuildingCard card, bool isFirstTurn)
         {
-            return System.Math.Max(CurrentLevel - card.Level, 0) + 1;
+            int baseCost = isFirstTurn ? 0 : 1;
+            return System.Math.Max(CurrentLevel + 1 - card.Level, 0) + baseCost;
         }
 
         public void Place(BuildingCard card)
         {
             if (!CanBePlaced(card))
             {
-                throw new CardException($"Card {card} can not be placed in slot {this}");
+                throw new DomainException($"Card {card} can not be placed in slot {this}");
             }
             Buildings.Add(card);
         }

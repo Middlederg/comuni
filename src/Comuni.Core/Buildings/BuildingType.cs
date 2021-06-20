@@ -2,7 +2,7 @@
 
 namespace Comuni.Core
 {
-    public class BuildingType
+    public record BuildingType
     {
         private readonly string name;
 

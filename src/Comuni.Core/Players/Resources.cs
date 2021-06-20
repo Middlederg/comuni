@@ -18,5 +18,20 @@ namespace Comuni.Core
         }
 
         public void Add(IEnumerable<Resource> resources) => resourceList.AddRange(resources);
+
+
+        public void PayCraftsmen(int count) => Pay(ResourceFactory.Craftsman, count);
+        public void Pay(Resource resource, int count)
+        {
+            if (count > resourceList.Count(x => x == resource))
+            {
+                throw new DomainException($"Can not be paid {count} {resource}");
+            }
+
+            foreach (var _ in Enumerable.Range(0, count))
+            {
+                resourceList.Remove(resource);
+            }
+        }
     }
 }

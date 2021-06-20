@@ -1,61 +1,9 @@
-using System;
 using Xunit;
 using Comuni.Core;
 using FluentAssertions;
-using System.Linq;
 
 namespace Comuni.UnitTests
 {
-    public class BuildingCardShould
-    {
-        [Fact]
-        public void Have_cost_of_1()
-        {
-            var level1Card = new DeckBuilder(1, "Level 1").Building;
-            var level2Card = new DeckBuilder(2, "Level 2").Building;
-
-            var cost = level2Card.Cost(level1Card);
-            cost.Should().Be(1);
-        }
-
-        [Fact]
-        public void Have_cost_of_2()
-        {
-            var level1Card = new DeckBuilder(1, "Level 1").Building;
-            var level2Card = new DeckBuilder(2, "Level 2").Building;
-
-            var cost = level1Card.Cost(level2Card);
-            cost.Should().Be(1);
-        }
-    }
-
-    public class DeckShould
-    {
-        [Fact]
-        public void Be_created_for_3_players()
-        {
-            var deck = DeckFactory.GetAll3PlayerBuildings();
-            deck.Should().NotBeEmpty();
-            deck.All(x => x.TotalMaxPlayers <= 3).Should().BeTrue();
-        }
-
-        [Fact]
-        public void Be_created_for_4_players()
-        {
-            var deck = DeckFactory.GetAll5PlayerBuildings();
-            deck.Should().NotBeEmpty();
-            deck.All(x => x.TotalMaxPlayers <= 4).Should().BeTrue();
-        }
-
-        [Fact]
-        public void Be_created_for_5_players()
-        {
-            var deck = DeckFactory.GetAll5PlayerBuildings();
-            deck.Should().NotBeEmpty();
-            deck.All(x => x.TotalMaxPlayers <= 5).Should().BeTrue();
-        }
-    }
-
     public class ResourceShould
     {
         [Fact]

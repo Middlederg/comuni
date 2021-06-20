@@ -10,7 +10,8 @@ namespace Comuni.Core
 
         public Resources Resources { get; }
         public IEnumerable<ConstructionSlot> Buildings { get; private set; }
-        public int Envoys { get; set; }
+        public int Envoys { get; private set; }
+        public void TakeEnvoy() => Envoys = Envoys - 1;
 
         public Player(City city)
         {
