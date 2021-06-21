@@ -4,7 +4,7 @@
     {
         private readonly Player player;
 
-        public bool CanBeBuild(ConstructionSlot slot, BuildingCard card, bool isFirstTurn)
+        public bool CanBeBuild(ConstructionSlot slot, Building card, bool isFirstTurn)
         {
             if (!slot.CanBePlaced(card))
             {
@@ -16,7 +16,7 @@
             return cost > player.Resources.Craftsmans;
         }
 
-        public void Build(ConstructionSlot slot, BuildingCard card, bool isFirstTurn)
+        public void Build(ConstructionSlot slot, Building card, bool isFirstTurn)
         {
             if (!CanBeBuild(slot, card, isFirstTurn))
             {

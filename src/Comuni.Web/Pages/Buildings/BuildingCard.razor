@@ -1,0 +1,16 @@
+﻿<div class="flex flex-col" style="background-color:@Building.FirstType.Color.ToHex()">
+    <h1 class="flex justify-between items-center">
+        <BuildingIcon BuildingType="Building.FirstType"  />
+
+       @Building.Level
+        
+    </h1>
+    <p>
+        @Building
+    </p>
+</div>
+
+@code {
+    [Parameter]
+    public Building Building { get; set; }
+}

@@ -4,7 +4,7 @@ namespace Comuni.Core
 {
     public interface IDeckFactory
     {
-        IEnumerable<BuildingCard> Create();
+        IEnumerable<Building> Create();
     }
 
 

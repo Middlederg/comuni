@@ -9,7 +9,7 @@ namespace Comuni.Core
         public bool GivesExtraResource { get; }
         public int TotalMaxPlayer { get; }
 
-        public IEnumerable<BuildingCard> Buildings { get; private set; }
+        public IEnumerable<Building> Buildings { get; private set; }
 
         public Bid Bid { get; private set; }
         public Player PlaceBid(Player player, int gold)
@@ -36,7 +36,7 @@ namespace Comuni.Core
             GivesExtraResource = givesExtraResource;
             TotalMaxPlayer = totalMaxPlayer;
             Bid = null;
-            Buildings = new List<BuildingCard>();
+            Buildings = new List<Building>();
         }
 
         public bool BidCanBePlaced(Player player, int gold)

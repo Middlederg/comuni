@@ -4,22 +4,22 @@ using System.Linq;
 
 namespace Comuni.Core
 {
-
-    public class BuildingCard
+    public class Building
     {
         public static Color BackgroundGenericColor = Color.Beige;
         public static Color ResourceGenericColor = Color.Gray;
 
-        public static BuildingCard Create(int level, string name) => new BuildingCard(level, name);
+        public static Building Create(int level, string name) => new Building(level, name);
 
         private readonly string name;
         private readonly List<BuildingType> buildingTypesAllowed;
+        public BuildingType FirstType => buildingTypesAllowed.First();
 
         public int Level { get; }
         public InvasionDeck Deck { get; internal set; }
         public int TotalMaxPlayers { get; internal set; }
 
-        private BuildingCard(int nivel, string nombre)
+        private Building(int nivel, string nombre)
         {
             Level = nivel;
             name = nombre;
@@ -29,7 +29,7 @@ namespace Comuni.Core
 
         internal void AddType(BuildingType tipo) => buildingTypesAllowed.Add(tipo);
 
-        public bool IsFromType(BuildingType tipo) => buildingTypesAllowed.Any(x => tipo == x);
+        public bool IsFromType(BuildingType tipo) => buildingTypesAllowed.Any(x => tipo.Equals(x));
 
         public bool IsGeneric => buildingTypesAllowed.Count() > 1;
 

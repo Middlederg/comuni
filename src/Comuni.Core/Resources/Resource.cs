@@ -3,7 +3,6 @@ using System.Linq;
 
 namespace Comuni.Core
 {
-
     public record Resource
     {
         private readonly string name;
@@ -22,6 +21,4 @@ namespace Comuni.Core
 
         public override string ToString() => name;
     }
-
-
 }

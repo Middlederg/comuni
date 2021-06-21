@@ -4,7 +4,7 @@ namespace Comuni.Core
 {
     internal class DeckD : IDeckFactory
     {
-        public IEnumerable<BuildingCard> Create()
+        public IEnumerable<Building> Create()
         {
             yield return EconomicBuildingFactory.Market.SetDeckD().Building;
             yield return EconomicBuildingFactory.Mill.SetDeckD().Building;

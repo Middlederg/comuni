@@ -2,11 +2,11 @@
 {
     public class DeckBuilder
     {
-        public BuildingCard Building { get; private set; }
+        public Building Building { get; private set; }
 
         public DeckBuilder(int nivel, string nombre)
         {
-            Building = BuildingCard.Create(nivel, nombre);
+            Building = Building.Create(nivel, nombre);
         }
 
         public DeckBuilder SetDeckA()

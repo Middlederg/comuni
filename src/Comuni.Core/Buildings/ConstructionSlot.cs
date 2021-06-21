@@ -5,7 +5,7 @@ namespace Comuni.Core
 {
     public class ConstructionSlot
     {
-        public List<BuildingCard> Buildings { get; }
+        public List<Building> Buildings { get; }
         public BuildingType Type { get; }
         public bool IsWall => Type.IsWall;
 
@@ -26,10 +26,10 @@ namespace Comuni.Core
         public ConstructionSlot(BuildingType type)
         {
             Type = type;
-            Buildings = new List<BuildingCard>();
+            Buildings = new List<Building>();
         }
 
-        public bool CanBePlaced(BuildingCard card)
+        public bool CanBePlaced(Building card)
         {
             if (IsWall)
             {
@@ -38,13 +38,13 @@ namespace Comuni.Core
             return card.IsFromType(Type) && !IsFull;
         }
 
-        public int Cost(BuildingCard card, bool isFirstTurn)
+        public int Cost(Building card, bool isFirstTurn)
         {
             int baseCost = isFirstTurn ? 0 : 1;
             return System.Math.Max(CurrentLevel + 1 - card.Level, 0) + baseCost;
         }
 
-        public void Place(BuildingCard card)
+        public void Place(Building card)
         {
             if (!CanBePlaced(card))
             {

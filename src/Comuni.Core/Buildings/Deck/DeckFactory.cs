@@ -5,7 +5,7 @@ namespace Comuni.Core
 {
     public static class DeckFactory
     {
-        private static IEnumerable<BuildingCard> GetAllBuildings()
+        private static IEnumerable<Building> GetAllBuildings()
         {
             foreach (var factory in new List<IDeckFactory>() { new DeckA(), new DeckB(), new DeckC(), new DeckD() })
             {
@@ -16,21 +16,21 @@ namespace Comuni.Core
             }
         }
 
-        public static IEnumerable<BuildingCard> GetAll3PlayerBuildings()
+        public static IEnumerable<Building> GetAll3PlayerBuildings()
         {
             return GetAllBuildings()
                 .Where(x => x.TotalMaxPlayers <= 3)
                 .ToList();
         }
 
-        public static IEnumerable<BuildingCard> GetAll4PlayerBuildings()
+        public static IEnumerable<Building> GetAll4PlayerBuildings()
         {
             return GetAllBuildings()
                 .Where(x => x.TotalMaxPlayers <= 4)
                 .ToList();
         }
 
-        public static IEnumerable<BuildingCard> GetAll5PlayerBuildings()
+        public static IEnumerable<Building> GetAll5PlayerBuildings()
         {
             return GetAllBuildings()
                 .Where(x => x.TotalMaxPlayers <= 5)

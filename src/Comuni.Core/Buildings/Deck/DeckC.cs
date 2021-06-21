@@ -4,7 +4,7 @@ namespace Comuni.Core
 {
     internal class DeckC : IDeckFactory
     {
-        public IEnumerable<BuildingCard> Create()
+        public IEnumerable<Building> Create()
         {
             yield return EconomicBuildingFactory.Farm.SetDeckC().Set5AsTotalMaxPlayers().Building;
             yield return EconomicBuildingFactory.Mill.SetDeckC().Building;
