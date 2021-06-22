@@ -1,15 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
 namespace Comuni.Core
 {
-    public class Building
+    public class Building : Identity<Guid>
     {
         public static Color BackgroundGenericColor = Color.Beige;
         public static Color ResourceGenericColor = Color.Gray;
 
         public static Building Create(int level, string name) => new Building(level, name);
+
+        public override Guid Id { get; }
 
         private readonly string name;
         private readonly List<BuildingType> buildingTypesAllowed;
@@ -21,6 +24,7 @@ namespace Comuni.Core
 
         private Building(int nivel, string nombre)
         {
+            Id = Guid.NewGuid();
             Level = nivel;
             name = nombre;
             TotalMaxPlayers = 0;
@@ -55,6 +59,8 @@ namespace Comuni.Core
                 return buildingTypesAllowed.First().GetBorder;
             }
         }
+
+
 
         public override string ToString() => name;
     }
