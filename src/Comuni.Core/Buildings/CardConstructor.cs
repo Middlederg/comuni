@@ -4,6 +4,11 @@
     {
         private readonly Player player;
 
+        public CardConstructor(Player player)
+        {
+            this.player = player;
+        }
+
         public bool CanBeBuild(ConstructionSlot slot, Building card, bool isFirstTurn)
         {
             if (!slot.CanBePlaced(card))

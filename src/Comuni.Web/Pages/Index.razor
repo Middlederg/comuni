@@ -1,46 +1,18 @@
 ﻿@page "/"
 
+<Constructions Player="player"
+               OnExistingSlotClicked="BuildCardInSlot"
+               OnNewSlotClicked="BuildCardInNewSlot" />
 
-<div class="flex flex-col space-y-2 max-w-lg">
-
-
-    <div class="flex justify-between items-center px-3">
-
-
-
-        <div class="flex justify-start flex-1 uppercase">
-            Constructions
-        </div>
-
-        <span class="flex justify-center w-12">
-            <MasterGuildIcon />
-        </span>
-
-
-        <span class="w-16 flex justify-center text-xs">
-            Collect
-        </span>
-
-        <span class="w-16 flex justify-center text-xs">
-            Resources
-        </span>
-    </div>
-
-    <Constructions Player="player" Type="BuildingTypeFactory.Economic" />
-    <Constructions Player="player" Type="BuildingTypeFactory.Military" />
-    <Constructions Player="player" Type="BuildingTypeFactory.Cultural" />
-    <Constructions Player="player" Type="BuildingTypeFactory.Religious" />
-</div>
-
-
-<BuildingGrid Cards="cards" />
-
+<BuildingGrid Cards="cards"
+              OnBuildingSelected="(building) => selectedBuilding = building" />
 
 <button @onclick="Add">Add</button>
 
 @code {
     private Core.Player player;
     private List<Building> cards;
+    private Building selectedBuilding;
 
     protected override void OnInitialized()
     {
@@ -54,5 +26,24 @@
         var slot = player.Slots.Create(card.FirstType);
         cards.Remove(card);
         player.Build(slot, card, true);
+    }
+
+    private void BuildCardInSlot(ConstructionSlot slot)
+    {
+        if (selectedBuilding != null)
+        {
+            player.Build(slot, selectedBuilding, true);
+            selectedBuilding = null;
+        }
+    }
+
+    private void BuildCardInNewSlot(BuildingType type)
+    {
+        if (selectedBuilding != null)
+        {
+            var slot = player.Slots.Create(type);
+            player.Build(slot, selectedBuilding, true);
+            selectedBuilding = null;
+        }
     }
 }

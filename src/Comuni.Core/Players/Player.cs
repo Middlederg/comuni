@@ -3,51 +3,6 @@ using System.Linq;
 
 namespace Comuni.Core
 {
-    public class BuildingTypeStatuses
-    {
-        private readonly IEnumerable<BuildingTypeStatus> buildingTypeStatuses;
-        private BuildingTypeStatus OfType(BuildingType type) => buildingTypeStatuses.FirstOrDefault(x => x.Type.Equals(type));
-
-        public bool WouldCollect(BuildingType type) => OfType(type)?.Active ?? false;
-        public void Enable(BuildingType type) => OfType(type)?.Activate();
-        public void Reset()
-        {
-            foreach (var status in buildingTypeStatuses)
-            {
-                status.Reset();
-            }
-        }
-
-        public BuildingTypeStatuses()
-        {
-            buildingTypeStatuses = new List<BuildingTypeStatus>()
-            {
-                new BuildingTypeStatus(BuildingTypeFactory.Economic),
-                new BuildingTypeStatus(BuildingTypeFactory.Military),
-                new BuildingTypeStatus(BuildingTypeFactory.Cultural),
-                new BuildingTypeStatus(BuildingTypeFactory.Religious),
-            };
-        }
-
-    }
-
-    public class Slots
-    {
-        private readonly List<ConstructionSlot> slots;
-        public IEnumerable<ConstructionSlot> SlotsOfType(BuildingType type) => slots.Where(x => x.Type.Equals(type));
-
-        public Slots()
-        {
-            slots = new List<ConstructionSlot>();
-        }
-
-        public ConstructionSlot Create(BuildingType type)
-        {
-            var slot = new ConstructionSlot(type);
-            slots.Add(slot);
-            return slot;
-        }
-    }
     public class Player : Identity<int>
     {
         public City City { get; }

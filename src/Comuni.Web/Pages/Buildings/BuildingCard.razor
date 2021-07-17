@@ -1,26 +1,31 @@
-﻿<button type="button"
-        class="flex flex-col px-3 py-2 border rounded-sm border-gray-500 @activeClass" 
-        style="background-color:@Building.FirstType.Color.ToHex()"
-        @onclick="BuildingSelected">
-    <h1 class="flex items-center font-semibold pb-2">
-        <BuildingIcon BuildingType="Building.FirstType"  />
+﻿<div class="@(Selectable ? "inline-block radio" : "")"
+     style="background-color:@Building.FirstType.Color.ToHex()">
+    <input name="answer"
+           type="radio"
+           id="@Building.Id"
+           hidden="hidden"
+           value="@Building.Id"
+           @onchange="BuildingSelected" />
+    <label for="@Building.Id"
+           class="cursor-pointer flex flex-col px-3 py-2 border rounded-sm border-gray-500 hover:opacity-75 hover:shadow">
+        <span class="flex items-center font-semibold pb-2">
+            <BuildingIcon BuildingType="Building.FirstType" />
 
-       <span class="ml-2">
-           
-        @Building
-           </span>
-        
-    </h1>
-    <p class="tracking-wide font-thin text-lg">
-       Level @Building.Level
-    </p>
-</button>
+            <span class="ml-2">
+
+                @Building
+            </span>
+        </span>
+        <span class="tracking-wide font-thin text-lg">
+            Level @Building.Level
+        </span>
+    </label>
+</div>
+
 
 @code {
-    private string activeClass = "";
-
-    [CascadingParameter]
-    public Building SelectedBuilding { get; set; }
+    [Parameter]
+    public bool Selectable { get; set; } = true;
 
     [Parameter]
     public Building Building { get; set; }
@@ -30,17 +35,9 @@
 
     private async Task BuildingSelected()
     {
-        SelectedBuilding = Building;
-        var id1 = SelectedBuilding?.Id;
-        var id2 = Building?.Id;
-        Console.WriteLine(id1?.ToString() ?? "");
-        Console.WriteLine(id2?.ToString() ?? "");
-        Console.WriteLine(SelectedBuilding != null && SelectedBuilding.Equals(Building));
-
-        activeClass = SelectedBuilding != null && SelectedBuilding.Equals(Building) ?
-        "hover:opacity-75 hover:shadow-lg outline-black focus:outline-black" :
-        "outline-none focus:outline-none";
-
-        await OnBuildingSelected.InvokeAsync(Building);
+        if (Selectable)
+        {
+            await OnBuildingSelected.InvokeAsync(Building);
+        }
     }
 }

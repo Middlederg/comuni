@@ -20,3 +20,13 @@
         right: 0.75rem;
         top: 0.5rem;
     }
+
+.radio input ~ label {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.radio input:checked ~ label {
+    outline: 2px dotted black;
+    outline-offset: 2px;
+}

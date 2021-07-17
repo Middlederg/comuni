@@ -1,26 +1,26 @@
-﻿<CascadingValue Value="building">
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mt-8">
-        @foreach (var card in Cards)
-        {
-            <BuildingCard Building="card" OnBuildingSelected="BuildingSelected" />
-        }
-    </div>
-</CascadingValue>
+﻿<h2 class="@Constants.TitleText">
+    My Projects
+</h2>
 
-<p class="m-4 p-2 bg-gray-400">@info</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mt-8">
+    @foreach (var card in Cards)
+    {
+        <BuildingCard Building="card" OnBuildingSelected="BuildingSelected" />
+    }
+</div>
 
 @code {
-    private Building building;
 
     [Parameter]
     public IEnumerable<Building> Cards { get; set; }
 
+    [Parameter]
+    public EventCallback<Building> OnBuildingSelected { get; set; }
 
-    string info = "";
 
     private void BuildingSelected(Building building)
     {
-        info = building.ToString();
+        OnBuildingSelected.InvokeAsync(building);
     }
 
 }
