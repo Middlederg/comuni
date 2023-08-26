@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5D36BC10-2DCB-47AC-A39D-6075FDEE0BE5}"
 EndProject
@@ -9,19 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{31C00C55-9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comuni.Core", "src\Comuni.Core\Comuni.Core.csproj", "{BDF57077-1988-4614-94B5-1F8A23AFFECF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comuni.Forms", "src\Comuni.Forms\Comuni.Forms.csproj", "{38B58384-5635-48F3-B8AF-00B8AC9E959B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31883BA5-D9E6-41B5-A3FF-458F32E823A5}"
-	ProjectSection(SolutionItems) = preProject
-		build\dependencies.props = build\dependencies.props
-		Directory.Build.props = Directory.Build.props
-		Directory.Build.targets = Directory.Build.targets
-		README.md = README.md
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comuni.UnitTests", "test\Comuni.UnitTests\Comuni.UnitTests.csproj", "{BA043B6B-F17F-40CF-A935-8B726BB95F3A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comuni.Web", "src\Comuni.Web\Comuni.Web.csproj", "{A7E82CAA-1685-483B-834F-65B6D4153BAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{24D6A90E-85D0-484E-8F95-5B3526B615A4}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		build\dependencies.props = build\dependencies.props
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		netlify.toml = netlify.toml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +33,6 @@ Global
 		{BDF57077-1988-4614-94B5-1F8A23AFFECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF57077-1988-4614-94B5-1F8A23AFFECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDF57077-1988-4614-94B5-1F8A23AFFECF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38B58384-5635-48F3-B8AF-00B8AC9E959B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38B58384-5635-48F3-B8AF-00B8AC9E959B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38B58384-5635-48F3-B8AF-00B8AC9E959B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38B58384-5635-48F3-B8AF-00B8AC9E959B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA043B6B-F17F-40CF-A935-8B726BB95F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA043B6B-F17F-40CF-A935-8B726BB95F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA043B6B-F17F-40CF-A935-8B726BB95F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,7 +47,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BDF57077-1988-4614-94B5-1F8A23AFFECF} = {5D36BC10-2DCB-47AC-A39D-6075FDEE0BE5}
-		{38B58384-5635-48F3-B8AF-00B8AC9E959B} = {5D36BC10-2DCB-47AC-A39D-6075FDEE0BE5}
 		{BA043B6B-F17F-40CF-A935-8B726BB95F3A} = {31C00C55-9926-4C3D-80B8-9CA5A8ACC35D}
 		{A7E82CAA-1685-483B-834F-65B6D4153BAC} = {5D36BC10-2DCB-47AC-A39D-6075FDEE0BE5}
 	EndGlobalSection

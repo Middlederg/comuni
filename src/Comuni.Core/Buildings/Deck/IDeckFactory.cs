@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
+﻿namespace Comuni.Core.Buildings.Deck;
 
-namespace Comuni.Core
+public interface IDeckFactory
 {
-    public interface IDeckFactory
-    {
-        IEnumerable<Building> Create();
-    }
-
-
+    IEnumerable<Building> Create();
 }

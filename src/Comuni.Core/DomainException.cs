@@ -1,13 +1,6 @@
-﻿using System;
+﻿namespace Comuni.Core;
 
-namespace Comuni.Core
+public class DomainException : Exception
 {
-    public class DomainException : Exception
-    {
-        public DomainException(string message) : base(message)
-        {
-
-        }
-    }
-
+    public DomainException(string message) : base(message) { }
 }

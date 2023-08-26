@@ -1,10 +1,10 @@
-﻿namespace Comuni.Core
+﻿namespace Comuni.Core.Buildings.Deck;
+
+public static class GenericBuildingFactory
 {
-    public static class GenericBuildingFactory
+    public static DeckBuilder Generic(int level)
     {
-        public static DeckBuilder Generic(int level) => new DeckBuilder(level, "Consistorio").
-            SetEconomic().SetMilitary().SetCultural().SetReligious();
+        return new DeckBuilder(level, "Consistorio").
+        SetEconomic().SetMilitary().SetCultural().SetReligious();
     }
-
-
 }

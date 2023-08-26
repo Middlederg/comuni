@@ -1,6 +1,6 @@
 using Xunit;
-using Comuni.Core;
 using FluentAssertions;
+using Comuni.Core.Resources;
 
 namespace Comuni.UnitTests
 {

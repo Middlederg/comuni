@@ -1,23 +1,21 @@
 <Project>
 
   <ItemGroup Label="Blazor">
-    <PackageReference Update="Blazored.LocalStorage" Version="3.0.0" />
-    <PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="$(NetPackageVersion)" />
-    <PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="$(NetPackageVersion)" />
-    <PackageReference Update="System.Net.Http.Json" Version="5.0.0" />
+    <PackageReference Update="Blazored.LocalStorage" Version="4.2.0" />
+    <PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="$(AspNetCorePackageVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="$(AspNetCorePackageVersion)" />
+    <PackageReference Update="System.Net.Http.Json" Version="7.0.0" />
   </ItemGroup> 
-  
-  <ItemGroup Label="ThirdParty">
-    <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
 
   <ItemGroup Label="Testing">
-    <PackageReference Update="FluentAssertions" Version="5.10.3" />
-    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.10.0" />
-    <PackageReference Update="xunit" Version="2.4.1" />
-    <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageReference Update="coverlet.collector" Version="3.0.3" />
+    <PackageReference Update="FluentAssertions" Version="6.8.0" />
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.4.1" />
+    <PackageReference Update="xunit" Version="2.4.2" />
+    <PackageReference Update="xunit.runner.visualstudio" Version="2.4.5" />
+    <PackageReference Update="coverlet.collector" Version="3.2.0" />
     <PackageReference Update="NSubstitute" Version="4.2.2" />
     <PackageReference Update="FontAwesome.Sharp" Version="5.15.3" />
+    <PackageReference Update="NSubstitute" Version="4.4.0" />
+    <PackageReference Update="Bogus" Version="34.0.2" />
   </ItemGroup>
 </Project>

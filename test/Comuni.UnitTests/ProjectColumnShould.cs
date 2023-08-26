@@ -2,6 +2,8 @@
 using Xunit;
 using Comuni.Core;
 using FluentAssertions;
+using Comuni.Core.Players;
+using Comuni.Core.Projects;
 
 namespace Comuni.UnitTests
 {

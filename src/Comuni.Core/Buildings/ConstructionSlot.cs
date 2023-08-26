@@ -1,58 +1,41 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿namespace Comuni.Core.Buildings;
 
-namespace Comuni.Core
+public class ConstructionSlot
 {
-    public class ConstructionSlot
+    public List<Building> Buildings { get; }
+    public BuildingType Type { get; }
+    public bool IsWall => Type.IsWall;
+
+    public int CurrentLevel => Buildings.Count;
+    public bool IsFull => CurrentLevel == 4;
+    public int CurrentPoints => IsWall ? 0 : Buildings.Select((x, index) => index + 1).Sum();
+
+    public ConstructionSlot(BuildingType type)
     {
-        public List<Building> Buildings { get; }
-        public BuildingType Type { get; }
-        public bool IsWall => Type.IsWall;
+        Type = type;
+        Buildings = new List<Building>();
+    }
 
-        public int CurrentLevel => Buildings.Count;
-        public bool IsFull => CurrentLevel == 4;
-        public int CurrentPoints
-        {
-            get
-            {
-                if (IsWall)
-                {
-                    return 0;
-                }
-                return Buildings.Select((x, index) => index + 1).Sum();
-            }
-        }
+    public bool CanBePlaced(Building card)
+    {
+        return IsWall ? !IsFull : card.IsFromType(Type) && !IsFull;
+    }
 
-        public ConstructionSlot(BuildingType type)
-        {
-            Type = type;
-            Buildings = new List<Building>();
-        }
+    public int Cost(Building card, bool isFirstTurn)
+    {
+        int baseCost = isFirstTurn ? 0 : 1;
+        return Math.Max(CurrentLevel + 1 - card.Level, 0) + baseCost;
+    }
 
-        public bool CanBePlaced(Building card)
-        {
-            if (IsWall)
-            {
-                return !IsFull;
-            }
-            return card.IsFromType(Type) && !IsFull;
-        }
+    public void Place(Building card)
+    {
+        if (!CanBePlaced(card))
+            throw new DomainException($"Card {card} can not be placed in slot {this}");
+        Buildings.Add(card);
+    }
 
-        public int Cost(Building card, bool isFirstTurn)
-        {
-            int baseCost = isFirstTurn ? 0 : 1;
-            return System.Math.Max(CurrentLevel + 1 - card.Level, 0) + baseCost;
-        }
-
-        public void Place(Building card)
-        {
-            if (!CanBePlaced(card))
-            {
-                throw new DomainException($"Card {card} can not be placed in slot {this}");
-            }
-            Buildings.Add(card);
-        }
-
-        public override string ToString() => CurrentLevel.ToString();
+    public override string ToString()
+    {
+        return CurrentLevel.ToString();
     }
 }

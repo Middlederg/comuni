@@ -1,23 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Comuni.Core.Buildings;
 
-namespace Comuni.Core
+namespace Comuni.Core.Players;
+
+public class Slots
 {
-    public class Slots
+    private readonly List<ConstructionSlot> slots;
+    public IEnumerable<ConstructionSlot> SlotsOfType(BuildingType type) => slots.Where(x => x.Type.Equals(type));
+
+    public Slots()
     {
-        private readonly List<ConstructionSlot> slots;
-        public IEnumerable<ConstructionSlot> SlotsOfType(BuildingType type) => slots.Where(x => x.Type.Equals(type));
+        slots = new List<ConstructionSlot>();
+    }
 
-        public Slots()
-        {
-            slots = new List<ConstructionSlot>();
-        }
-
-        public ConstructionSlot Create(BuildingType type)
-        {
-            var slot = new ConstructionSlot(type);
-            slots.Add(slot);
-            return slot;
-        }
+    public ConstructionSlot Create(BuildingType type)
+    {
+        var slot = new ConstructionSlot(type);
+        slots.Add(slot);
+        return slot;
     }
 }

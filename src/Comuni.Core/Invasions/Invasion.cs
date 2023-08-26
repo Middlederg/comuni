@@ -1,24 +1,20 @@
-﻿namespace Comuni.Core
+﻿namespace Comuni.Core.Invasions;
+
+public class Invasion : Identity<InvasionDeck>
 {
-    public class Invasion : Identity<InvasionDeck>
+    private readonly string name;
+
+    public int Strength { get; }
+    public int HeroismFirst { get; }
+    public int HeroismSecond { get; }
+
+    internal Invasion(InvasionDeck deck, string name, int strength, int heroismFirst, int heroismSecond) : base(deck)
     {
-        private readonly InvasionDeck deck;
-        private readonly string name;
-
-        public override InvasionDeck Id => deck;
-        public int Strength { get; }
-        public int HeroismFirst { get; }
-        public int HeroismSecond { get; }
-
-        internal Invasion(InvasionDeck deck, string name, int strength, int heroismFirst, int heroismSecond)
-        {
-            this.deck = deck;
-            this.name = name;
-            Strength = strength;
-            HeroismFirst = heroismFirst;
-            HeroismSecond = heroismSecond;
-        }
-
-        public override string ToString() => name;
+        this.name = name;
+        Strength = strength;
+        HeroismFirst = heroismFirst;
+        HeroismSecond = heroismSecond;
     }
+
+    public override string ToString() => name;
 }

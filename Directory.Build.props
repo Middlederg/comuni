@@ -1,8 +1,13 @@
 <Project>
-    <Import Project="build/dependencies.props"/>
-    <PropertyGroup Label="Default Metadata">
-        <Authors>jcl86</Authors>
-        <Company>Middlederg</Company>
-        <RepositoryUrl>https://github.com/middlederg/comuni.git</RepositoryUrl>
-    </PropertyGroup>
+  <Import Project="build/dependencies.props"/>
+  <PropertyGroup Label="Default Metadata">
+    <Authors>jcl86</Authors>
+    <Company>Middlederg</Company>
+    <RepositoryUrl>https://github.com/middlederg/comuni.git</RepositoryUrl>
+  </PropertyGroup>
+  <PropertyGroup Label="Common Project Settings">
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>11.0</LangVersion>
+  </PropertyGroup>
 </Project>

@@ -1,7 +1,7 @@
 ﻿using Xunit;
-using Comuni.Core;
 using FluentAssertions;
 using System.Linq;
+using Comuni.Core.Buildings.Deck;
 
 namespace Comuni.UnitTests
 {

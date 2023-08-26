@@ -1,9 +1,6 @@
-﻿namespace Comuni.Core
+﻿namespace Comuni.Core.Invasions;
+
+public enum InvasionDeck
 {
-    public enum InvasionDeck
-    {
-        A, B, C, D
-    }
-
-
+    A, B, C, D
 }

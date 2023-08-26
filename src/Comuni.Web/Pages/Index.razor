@@ -10,13 +10,13 @@
 <button @onclick="Add">Add</button>
 
 @code {
-    private Core.Player player;
+    private Player player;
     private List<Building> cards;
     private Building selectedBuilding;
 
     protected override void OnInitialized()
     {
-        player = new Core.Player(CityFactory.Luca);
+        player = new Player(CityFactory.Luca);
         cards = DeckFactory.GetAll3PlayerBuildings().ToList();
     }
 

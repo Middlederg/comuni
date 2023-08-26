@@ -1,33 +1,41 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Comuni.Core.Buildings;
 
-namespace Comuni.Core
+namespace Comuni.Core.Players;
+
+public class BuildingTypeStatuses
 {
-    public class BuildingTypeStatuses
+    private readonly IEnumerable<BuildingTypeStatus> buildingTypeStatuses;
+    private BuildingTypeStatus OfType(BuildingType type)
     {
-        private readonly IEnumerable<BuildingTypeStatus> buildingTypeStatuses;
-        private BuildingTypeStatus OfType(BuildingType type) => buildingTypeStatuses.FirstOrDefault(x => x.Type.Equals(type));
+        return buildingTypeStatuses.FirstOrDefault(x => x.Type.Equals(type));
+    }
 
-        public bool WouldCollect(BuildingType type) => OfType(type)?.Active ?? false;
-        public void Enable(BuildingType type) => OfType(type)?.Activate();
-        public void Reset()
+    public bool WouldCollect(BuildingType type)
+    {
+        return OfType(type)?.Active ?? false;
+    }
+
+    public void Enable(BuildingType type)
+    {
+        OfType(type)?.Activate();
+    }
+
+    public void Reset()
+    {
+        foreach (BuildingTypeStatus status in buildingTypeStatuses)
         {
-            foreach (var status in buildingTypeStatuses)
-            {
-                status.Reset();
-            }
+            status.Reset();
         }
+    }
 
-        public BuildingTypeStatuses()
+    public BuildingTypeStatuses()
+    {
+        buildingTypeStatuses = new List<BuildingTypeStatus>()
         {
-            buildingTypeStatuses = new List<BuildingTypeStatus>()
-            {
-                new BuildingTypeStatus(BuildingTypeFactory.Economic),
-                new BuildingTypeStatus(BuildingTypeFactory.Military),
-                new BuildingTypeStatus(BuildingTypeFactory.Cultural),
-                new BuildingTypeStatus(BuildingTypeFactory.Religious),
-            };
-        }
-
+            new BuildingTypeStatus(BuildingTypeFactory.Economic),
+            new BuildingTypeStatus(BuildingTypeFactory.Military),
+            new BuildingTypeStatus(BuildingTypeFactory.Cultural),
+            new BuildingTypeStatus(BuildingTypeFactory.Religious),
+        };
     }
 }
