@@ -1,49 +1,30 @@
 ﻿@page "/"
 
-<Constructions Player="player"
-               OnExistingSlotClicked="BuildCardInSlot"
-               OnNewSlotClicked="BuildCardInNewSlot" />
+<CascadingValue Value="game">
+    <ConstructionModal @ref="constructionModal">
 
-<BuildingGrid Cards="cards"
-              OnBuildingSelected="(building) => selectedBuilding = building" />
+    </ConstructionModal>
+</CascadingValue>
 
-<button @onclick="Add">Add</button>
 
-@code {
-    private Player player;
-    private List<Building> cards;
-    private Building selectedBuilding;
+<CustomButton OnClick="ShowConstructionModal" Height="CustomButton.ButtonHeight.Small">
+
+    Build
+
+</CustomButton>
+
+@code
+{
+    private Game? game;
+    private ConstructionModal? constructionModal;
 
     protected override void OnInitialized()
     {
-        player = new Player(CityFactory.Luca);
-        cards = DeckFactory.GetAll3PlayerBuildings().ToList();
+        game = new Game();
     }
 
-    private void Add()
+    private void ShowConstructionModal()
     {
-        var card = cards.First();
-        var slot = player.Slots.Create(card.FirstType);
-        cards.Remove(card);
-        player.Build(slot, card, true);
-    }
-
-    private void BuildCardInSlot(ConstructionSlot slot)
-    {
-        if (selectedBuilding != null)
-        {
-            player.Build(slot, selectedBuilding, true);
-            selectedBuilding = null;
-        }
-    }
-
-    private void BuildCardInNewSlot(BuildingType type)
-    {
-        if (selectedBuilding != null)
-        {
-            var slot = player.Slots.Create(type);
-            player.Build(slot, selectedBuilding, true);
-            selectedBuilding = null;
-        }
+        constructionModal?.Show();
     }
 }

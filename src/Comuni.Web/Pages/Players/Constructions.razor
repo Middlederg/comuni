@@ -45,8 +45,8 @@
 
 @code {
 
-    [Parameter]
-    public Player Player { get; set; }
+    [Parameter, EditorRequired]
+    public required Player Player { get; set; }
 
     [Parameter]
     public EventCallback<ConstructionSlot> OnExistingSlotClicked { get; set; }

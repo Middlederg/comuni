@@ -9,6 +9,7 @@ public class Player : Identity<int>
 
     public Resources Resources { get; }
     public Slots Slots { get; }
+    public List<Building> Hand { get; private set; }
 
     public int Envoys { get; private set; }
     public void TakeEnvoy() => Envoys -= 1;
@@ -25,13 +26,16 @@ public class Player : Identity<int>
         GuildMasters = new List<GuildMaster>();
         BuildingTypeStatuses = new BuildingTypeStatuses();
         Envoys = 3;
+        Hand = new List<Building>();
     }
 
     public bool CanBuild(ConstructionSlot slot, Building card, bool isFirstTurn)
     {
-        if (slot.CanBePlaced(card))
-            return slot.Cost(card, isFirstTurn) <= Resources.Craftsmans;
-        return false;
+        if (!slot.CanBePlaced(card))
+        {
+            return false;
+        }
+        return slot.Cost(card, isFirstTurn) <= Resources.Craftsmans;
     }
 
     public void Build(ConstructionSlot slot, Building card, bool isFirstTurn)

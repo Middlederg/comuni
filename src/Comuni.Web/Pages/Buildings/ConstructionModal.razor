@@ -1,0 +1,73 @@
+﻿
+
+<Modal @ref="modal">
+    <Title>
+        <div class="relative text-xs mr-4">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                
+            </div>
+            <span>
+                Build
+            </span>
+
+        </div>
+    </Title>
+
+    <Content>
+        @if(Game is not null)
+        {
+            <Constructions Player="Game.Player"
+                           OnExistingSlotClicked="BuildCardInSlot"
+                           OnNewSlotClicked="BuildCardInNewSlot" />
+
+            <BuildingGrid Cards="Game.Player.Hand"
+                          OnBuildingSelected="(building) => selectedBuilding = building" />
+        }
+
+    </Content>
+
+</Modal>
+
+@code {
+    [CascadingParameter]
+    public Game? Game { get; set; }
+
+    private Modal? modal;
+    public void Show() => modal?.Show();
+
+    private Building? selectedBuilding;
+
+    //private void Add()
+    //{
+    //    if (Game is null) return;
+
+    //    var card = Game.Player.Hand.First();
+    //    var slot = Game.Player.Slots.Create(card.FirstType);
+    //    cards.Remove(card);
+    //    player.Build(slot, card, true);
+    //}
+
+    private void BuildCardInSlot(ConstructionSlot slot)
+    {
+        if (Game is null || selectedBuilding is null)
+        {
+            return;
+        }
+
+        Game.Player.Build(slot, selectedBuilding, true);
+        selectedBuilding = null;
+    }
+
+    private void BuildCardInNewSlot(BuildingType type)
+    {
+        if (Game is null || selectedBuilding is null)
+        {
+            return;
+        }
+
+        var slot = Game.Player.Slots.Create(type);
+        Game.Player.Build(slot, selectedBuilding, true);
+        selectedBuilding = null;
+        StateHasChanged();
+    }
+}

@@ -1,4 +1,4 @@
-﻿<h2 class="@Constants.TitleText">
+﻿<h2 class="@Styles.TitleText">
     My Projects
 </h2>
 
@@ -11,8 +11,8 @@
 
 @code {
 
-    [Parameter]
-    public IEnumerable<Building> Cards { get; set; }
+    [Parameter, EditorRequired]
+    public required IEnumerable<Building> Cards { get; set; }
 
     [Parameter]
     public EventCallback<Building> OnBuildingSelected { get; set; }

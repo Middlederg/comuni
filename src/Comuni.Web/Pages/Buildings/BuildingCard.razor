@@ -27,8 +27,8 @@
     [Parameter]
     public bool Selectable { get; set; } = true;
 
-    [Parameter]
-    public Building Building { get; set; }
+    [Parameter, EditorRequired]
+    public required Building Building { get; set; }
 
     [Parameter]
     public EventCallback<Building> OnBuildingSelected { get; set; }
